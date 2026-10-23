@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit expense' if editing else 'Add expense' }}{% endblock %}
+{% block content %}
+<h1>{{ 'Edit expense' if editing else 'Add expense' }}</h1>
+<form class="card" method="post">
+  <label>Title
+    <input name="title" value="{{ values.title or '' }}" maxlength="100" required autofocus>
+  </label>
+  <label>Amount (₹)
+    <input name="amount" type="number" step="0.01" min="0.01" value="{{ values.amount or '' }}" required>
+  </label>
+  <label>Category
+    <select name="category">
+      {% for c in categories %}
+        <option value="{{ c }}" {{ 'selected' if c == values.category }}>{{ c }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <label>Date
+    <input name="spent_on" type="date" value="{{ values.spent_on or '' }}" required>
+  </label>
+  <label>Note (optional)
+    <textarea name="note" rows="2" maxlength="300">{{ values.note or '' }}</textarea>
+  </label>
+  <div class="row">
+    <button class="btn" type="submit">{{ 'Save changes' if editing else 'Add expense' }}</button>
+    <a class="link" href="{{ url_for('expenses.index') }}">Cancel</a>
+  </div>
+</form>
+{% endblock %}
