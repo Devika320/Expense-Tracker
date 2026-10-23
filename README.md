@@ -3,7 +3,7 @@
 A web app to record daily expenses, filter them by month and category, and see a spending breakdown.
 Built as the Python Capstone Project for the Codomax internship.
 
-**Live demo:** _add your Render URL here_
+**Live demo:** https://expense-tracker-a30y.onrender.com/
 **Demo video:** _add your video link here_
 
 ## Features
